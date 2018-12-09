@@ -1,0 +1,34 @@
+<!--
+  Generated template for the HerosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>heros</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<p *ngIf="selectedHero">{{selectedHero.name}}</p>
+
+<div>
+  <ul class="heroes">
+    <li *ngFor="let h of heros" (click)="onSelect(h)" [class.selected]="h === selectedHero">
+      <span class="badge">{{h.id}}</span> {{h.name}}
+    </li>
+  </ul>
+</div>
+
+  <div *ngIf ="selectedHero">
+      <h2>{{selectedHero.name | uppercase}} Details</h2> <br/>
+      <span>id : {{selectedHero.id}} </span><br/>
+      <input type="text" [(ngModel)] = "selectedHero.name">
+  </div>
+
+</ion-content>
